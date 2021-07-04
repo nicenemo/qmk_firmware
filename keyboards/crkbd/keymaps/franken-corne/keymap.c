@@ -40,35 +40,35 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( // 0 qwerty layer
   //,-----------------------------------------.                                   ,---------------------------------------------.
-  KC_TILD,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                                      KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_HASH,
+  LT(_MEDIA,KC_GRV),  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                                      KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_HASH,
   //------+------+------+------+------+------|                                    |------+------+-------+------+-------+--------|
   MEH_T(KC_TAB),  KC_A, LCTL_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), LSFT_T(KC_G),    RSFT_T(KC_H),  RGUI_T(KC_J),  RALT_T(KC_K),  RCTL_T(KC_L), KC_SCLN,KC_QUOT,
   //------+------+------+------+------+------|                                    |------+------+-------+------+-------+--------|
-  LT(_MEDIA, KC_AT),  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                            KC_N,  KC_M,KC_COMM,KC_DOT,KC_SLSH, LT(_FUNCTION_KEYS, KC_BSLS),
+  KC_AT,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                            KC_N,  KC_M,KC_COMM,KC_DOT,KC_SLSH, LT(_FUNCTION_KEYS, KC_BSLS),
   //------+------+------+------+------+------+------|                             |------+------+------+-------+------+-------+--------|
               ALL_T(KC_ESC),LT(_NAV,KC_DEL), LT(_MOUSE,KC_SPC),                    KC_ENT, LT(_LEFT_NUMPAD,KC_BSPC), LT(_SYMBOL, KC_COLN)
              //`--------------------'                                             '--------------------'
   ),
   [_NEO2] = LAYOUT_split_3x6_3( // NEO2 base layer adapted for Corne keyboard and Dutch language. No Diacritics
   //,-----------------------------------------.                                   ,-----------------------------------------.
-     KC_TILD, KC_X, KC_V, KC_L, KC_C, KC_W,                                        KC_K, KC_H, KC_G, KC_F, KC_Q, KC_HASH,
+     LT(_MEDIA,KC_GRV), KC_X, KC_V, KC_L, KC_C, KC_W,                                        KC_K, KC_H, KC_G, KC_F, KC_Q, KC_HASH,
   //------+------+------+------+------+------|                                    |------+------+------+------+------+------|
      MEH_T(KC_TAB), KC_U, LCTL_T(KC_I), LALT_T(KC_A), LGUI_T(KC_E), LSFT_T(KC_O),  RSFT_T(KC_S), RGUI_T(KC_N), RALT_T(KC_R), RCTL_T(KC_T), KC_D, KC_Y,
   //------+------+------+------+------+------|                                    |------+------+------+------+------+------|
-     LT(_MEDIA, KC_AT), KC_DLR, KC_J, KC_NO, KC_P,KC_Z,                           KC_B, KC_M, KC_COMM, KC_DOT, KC_SLSH, LT(_FUNCTION_KEYS,KC_BSLS),
+     KC_AT, KC_DLR, KC_J, KC_NO, KC_P,KC_Z,                           KC_B, KC_M, KC_COMM, KC_DOT, KC_SLSH, LT(_FUNCTION_KEYS,KC_BSLS),
   //------+------+------+------+------+------+------|                             |------+------+------+------+------+------+------|
                 KC_TRNS, KC_TRNS, KC_TRNS,                                         KC_TRNS, KC_TRNS,KC_TRNS
                 //`--------------------'                                          `--------------------'
   ),
   [_SYMBOL] = LAYOUT_split_3x6_3( //  2 Symbol layer
   //,---------------------------------------------.                ,-----------------------------------------.
-     KC_AT, KC_7,  KC_8,  KC_9,  KC_PAST,  KC_BSLS,                  KC_PSCR, KC_NO,   KC_BRID,   KC_BRIU,  KC_NO,  KC_NO,
+     KC_TILDE, KC_LPRN,  KC_RPRN,  KC_PERC,  KC_AMPR,  KC_BSLS,                  KC_PSCR, KC_NO,   KC_BRID,   KC_BRIU,  KC_NO,  KC_NO,
   //|------+------+-------+-------+-------+-------|                |------+------+------+------+------+------|
-     KC_UNDS, KC_4,  KC_5,  KC_6,  KC_PPLS,  KC_COMM,                KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, KC_NO, KC_NO,
+     KC_UNDS, KC_LCBR,  KC_RCBR,  KC_CIRC,  KC_EQL,  KC_COMM,                KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, KC_NO, KC_NO,
   //|------+------+-------+-------+-------+-------|                |------+------+------+------+------+------|
-     KC_HASH, KC_1,  KC_2,  KC_3,  KC_PCMM,  KC_DLR,                  KC_CAPS,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
+     KC_HASH, KC_LBRC,  KC_RBRC,  KC_PIPE,  KC_PCMM,  KC_DLR,                  KC_CAPS,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_NO,
   //|------+------+-------+-------+-------+-------+------|  |------+------+------+------+------+------+------|
-                                   KC_0, KC_NO, KC_PEQL,      TO(_NEO2), TO(_QWERTY), KC_NO
+                                   KC_0, KC_LT, KC_PEQL,      TO(_NEO2), TO(_QWERTY), KC_NO
                                   //`--------------------'  `--------------------'
   ),
   [_MOUSE] = LAYOUT_split_3x6_3( // 3 mouse layer
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //------+------+-------+-------+-------+-------|                                    |------+------+------+------+------+------|
      KC_PDOT, KC_1,  KC_2,  KC_3,  KC_PCMM,  KC_PERC,                                    KC_CAPS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
   //------+------+-------+-------+-------+-------+------|                             |------+------+------+------+------+------+------|
-                                   KC_0, KC_CIRC, KC_PEQL,                            KC_NO, KC_NO, KC_NO
+                                   KC_0, KC_GT, KC_PEQL,                            KC_NO, KC_NO, KC_NO
                                   //`--------------------'                             `--------------------'
   ),
   [_NAV] = LAYOUT_split_3x6_3( // 5 nav layer
@@ -349,10 +349,6 @@ void render_status_secondary(void) {
     render_space();
     render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
     render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
-}
-
-void suspend_power_down_user() {
-    oled_off();
 }
 
 void oled_task_user(void) {
